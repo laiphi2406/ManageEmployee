@@ -26,7 +26,6 @@
 	<mvc:interceptors>
 		<bean class="com.ManageEmployee.interceptor.MenuHandleInterceptor"></bean>
 	</mvc:interceptors>
-	<bean name="homeService" class="com.ManageEmployee.service.impl.HomeServiceImpl" />
 
 	<mvc:resources mapping="/template/**" location="/template/" />
 </beans>

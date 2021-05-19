@@ -24,10 +24,10 @@ public class AbstractDAO<T> implements GenericDAO<T> {
 			String url = resourceBundle.getString("url");
 			String user = resourceBundle.getString("user");
 			String password = resourceBundle.getString("password");*/
-			Class.forName("com.mysql.jdbc.Driver");
-			String url = "com.mysql.jdbc.Driver ";
-			String user = "root";
-			String password = "1234";
+			Class.forName("org.postgresql.Driver");
+			String url = "jdbc:postgresql://localhost:5432/postgres";
+			String user = "postgres";
+			String password = "postgres";
 			return DriverManager.getConnection(url, user, password);
 		} catch (ClassNotFoundException | SQLException e) {
 			return null;

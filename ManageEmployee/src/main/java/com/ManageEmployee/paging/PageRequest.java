@@ -1,6 +1,6 @@
 package com.ManageEmployee.paging;
 
-import com.ManageEmployee.sort.Sorter;
+import com.ManageEmployee.paging.Sorter;
 
 public class PageRequest implements Pageble {
 	

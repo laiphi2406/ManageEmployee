@@ -1,6 +1,6 @@
-package com.laptrinhjavaweb.paging;
+package com.ManageEmployee.paging;
 
-import com.laptrinhjavaweb.sort.Sorter;
+import com.ManageEmployee.paging.Sorter;
 
 public interface Pageble {
 	Integer getPage();

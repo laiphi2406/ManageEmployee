@@ -1,39 +1,78 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%@include file="/common/taglib.jsp"%>	
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@page session="true"%>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Đăng nhập</title>
-</head>
-<body>
-	<div class="container">
-		<!-- <h1 class="form-heading">login Form</h1> -->
-		<div class="login-form">
-			<div class="main-div">
-				<c:if test="${param.incorrectAccount != null}">
-					<div class="alert alert-danger">	
-							Username or password incorrect
-					</div>
-				</c:if>
-				<c:if test="${param.accessDenied != null}">
-					<div class="alert alert-danger">	
-							you Not authorize
-					</div>
-				</c:if>
-				<form action="j_spring_security_check" id="formLogin" method="post">
-					<div class="form-group">
-						<input type="text" class="form-control" id="userName" name="j_username" placeholder="Tên đăng nhập">
-					</div>
+<title>Login Page</title>
+<style>
+.error {
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    color: #a94442;
+    background-color: #f2dede;
+    border-color: #ebccd1;
+}
 
-					<div class="form-group">
-						<input type="password" class="form-control" id="password" name="j_password" placeholder="Mật khẩu">
-					</div>
-					<button type="submit" class="btn btn-primary" >Đăng nhập</button>
-				</form>
-			</div>
-		</div>
-	</div>
+.msg {
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    color: #31708f;
+    background-color: #d9edf7;
+    border-color: #bce8f1;
+}
+
+#login-box {
+    width: 300px;
+    padding: 20px;
+    margin: 100px auto;
+    background: #fff;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border: 1px solid #000;
+}
+</style>
+</head>
+<body style="background: antiquewhite" onload='document.loginForm.username.focus();'>
+
+    <h1>Welcome to Manage Employee System</h1>
+
+    <div id="login-box" style="background: aliceblue">
+
+        <h2>Login with Username and Password</h2>
+
+        <c:if test="${not empty error}">
+            <div class="error">${error}</div>
+        </c:if>
+        <c:if test="${not empty msg}">
+            <div class="msg">${msg}</div>
+        </c:if>
+
+        <form name='loginForm'
+          action="<c:url value='checkaccount' />" method='POST'>
+
+        <table>
+            <tr>
+                <td>User:</td>
+                <td><input type='text' name='username'></td>
+            </tr>
+            <tr>
+                <td>Password:</td>
+                <td><input type='password' name='password' /></td>
+            </tr>
+            <tr>
+                <td colspan='2'><input name="submit" type="submit"
+                  value="submit" /></td>
+            </tr>
+          </table>
+
+          <input type="hidden" name="${_csrf.parameterName}"
+            value="${_csrf.token}" />
+
+        </form>
+    </div>
+
 </body>
 </html>

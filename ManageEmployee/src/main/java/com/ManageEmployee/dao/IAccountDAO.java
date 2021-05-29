@@ -11,6 +11,6 @@ public interface IAccountDAO extends GenericDAO<AccountModel> {
 	 */
 	List<AccountModel> getAccount();
 	
-	List<AccountModel> findByUsername(String userName);
+	List<AccountModel> findByUsername(String username, String password);
 	/* int getTotalItem(); */
 }

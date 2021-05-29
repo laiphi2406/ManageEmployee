@@ -1,18 +1,8 @@
 package com.ManageEmployee.model;
 
-import java.util.Collection;
-
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.userdetails.User;
-
-public class AccountModel extends User{
+public class AccountModel extends AbstractModel<AccountModel>{
 	
-	public AccountModel(String username, String password, boolean enabled, boolean accountNonExpired,
-			boolean credentialsNonExpired, boolean accountNonLocked,
-			Collection<? extends GrantedAuthority> authorities) {
-		super(username, password, enabled, accountNonExpired, credentialsNonExpired, accountNonLocked, authorities);
-		// TODO Auto-generated constructor stub
-	}
+
 	private String userName;
 	private String passWord;
 	private Boolean role;
